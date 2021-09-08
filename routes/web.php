@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CategoryManagementController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+Route::middleware(['auth'])->group(function() {
+    Route::get('/categories', [CategoryManagementController::class, 'index'])->name('categories');
+
+    Route::get('/categories/create', [CategoryManagementController::class, 'create'])->name('categories.create');
+    Route::post('/categories', [CategoryManagementController::class, 'store'])->name('categories.store');
+});
+
+
+
+require __DIR__.'/auth.php';

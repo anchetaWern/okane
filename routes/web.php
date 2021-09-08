@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryManagementController;
+use App\Http\Controllers\FundsManagementController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +27,10 @@ Route::middleware(['auth'])->group(function() {
 
     Route::get('/categories/create', [CategoryManagementController::class, 'create'])->name('categories.create');
     Route::post('/categories', [CategoryManagementController::class, 'store'])->name('categories.store');
+
+    Route::get('/funds', [FundsManagementController::class, 'index'])->name('funds');
+    Route::get('/funds/create', [FundsManagementController::class, 'create'])->name('funds.create');
+    Route::post('/funds', [FundsManagementController::class, 'store'])->name('funds.store');
 });
 
 

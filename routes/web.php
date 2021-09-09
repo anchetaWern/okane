@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryManagementController;
 use App\Http\Controllers\FundsManagementController;
+use App\Http\Controllers\TransactionsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +32,10 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/funds', [FundsManagementController::class, 'index'])->name('funds');
     Route::get('/funds/create', [FundsManagementController::class, 'create'])->name('funds.create');
     Route::post('/funds', [FundsManagementController::class, 'store'])->name('funds.store');
+
+    Route::get('/transactions', [TransactionsController::class, 'index'])->name('transactions');
+    Route::get('/transactions/create', [TransactionsController::class, 'create'])->name('transactions.create');
+    Route::post('/transactions', [TransactionsController::class, 'store'])->name('transactions.store');
 });
 
 

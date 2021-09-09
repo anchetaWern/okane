@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\UserCategory;
 use App\Models\UserFunds;
+use App\Models\UserTransactions;
 
 class User extends Authenticatable
 {
@@ -54,5 +55,11 @@ class User extends Authenticatable
     public function funds()
     {
         return $this->hasMany(UserFunds::class, 'user_id');
+    }
+
+
+    public function transactions()
+    {
+        return $this->hasMany(UserTransactions::class, 'user_id');
     }
 }

@@ -39,17 +39,17 @@ class TransactionsTest extends TestCase
     /** @test */
     public function a_transaction_can_be_created_if_form_is_valid()
     {
-        $this->withoutExceptionHandling();
         $this->signIn();
 
         $form_data = [
             'transaction_datetime' => now()->toDateTimeString(),
             'user_category_id' => 1,
-            'transaction_type' => 'savings',
+            'transaction_type' => 'income',
             'summary' => 'bank savings',
             'source_user_fund_id' => 1,
             'destination_user_fund_id' => null,
             'amount' => 10000,
+            'cashback' => null,
             'transfer_fee' => null,
             'notes' => null,
         ];

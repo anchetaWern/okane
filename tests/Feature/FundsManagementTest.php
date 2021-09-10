@@ -45,7 +45,7 @@ class FundsManagementTest extends TestCase
             'initial_balance' => 1000,
         ];
 
-        $response = $this->post('/funds/create', $form_data);
+        $response = $this->post('/funds', $form_data);
 
         $response
             ->assertRedirect()

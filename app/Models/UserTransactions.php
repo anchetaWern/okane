@@ -18,6 +18,7 @@ class UserTransactions extends Model
         'source_user_fund_id',
         'destination_user_fund_id',
         'amount',
+        'cashback',
         'transfer_fee',
         'notes',
     ];

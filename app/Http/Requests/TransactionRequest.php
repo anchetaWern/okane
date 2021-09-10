@@ -31,6 +31,7 @@ class TransactionRequest extends FormRequest
             'source_user_fund_id' => 'required|integer',
             'destination_user_fund_id' => 'nullable',
             'amount' => 'required|numeric',
+            'cashback' => 'nullable|numeric',
             'transfer_fee' => 'nullable',
             'notes' => 'nullable',
         ];
